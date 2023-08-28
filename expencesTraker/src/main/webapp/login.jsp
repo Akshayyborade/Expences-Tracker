@@ -6,6 +6,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <%@include file="componant/allcss.jsp"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	<%@page isELIgnored ="false" %>
 <style>
 .card-sh{
 box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.3);
@@ -20,9 +22,13 @@ box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.3);
 				<div class="card card-sh">
 					<div class="card-header">
 						<p class="text-center fs-3">Login Here</p>
+						<c:if test="${not empty msg }">
+						<p class ="text-center text-dark fs-4">${msg}</p>
+						<c:remove var="msg"/>
+						</c:if>
 					</div>
 					<div class="card-body">
-					<form action="" method="">
+					<form action="Login" method="Post">
 					
 					<div class="mb-3">
 					<label>Email</label>
@@ -33,8 +39,8 @@ box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.3);
 					<input type="password" name="password" class="form-control" >
 					</div>
 					
-					<button class="btn btn-success col-md-12">Login</button>
-					<div class = "text-center mt-2">Don't have account	<a href="register.jsp" class="text-decoration-none">click here</a></div>
+					<button class="btn btn-dark col-md-12">Login</button>
+					<div class = "text-center mt-2">Don't have account	<a href="resister.jsp" class="text-decoration-none">click here</a></div>
 				
 					</form>
 					</div>

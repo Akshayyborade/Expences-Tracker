@@ -12,8 +12,7 @@
 </head>
 <body>
 <%@ include file="componant/navbar.jsp" %>
-<% SessionFactory factory = HibernateConfig.getSessionFactory();
-out.print(factory);%>
+
 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active" >

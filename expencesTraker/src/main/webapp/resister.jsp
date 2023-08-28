@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	<%@page isELIgnored ="false" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,6 +22,10 @@ box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.3);
 				<div class="card card-sh">
 					<div class="card-header">
 						<p class="text-center fs-3">Register Here</p>
+						<c:if test="${not empty msg }">
+						<p class ="text-center text-dark fs-4">${msg}</p>
+						<c:remove var="msg"/>
+						</c:if>
 					</div>
 					<div class="card-body">
 					<form action="userRegister" method="post">
@@ -39,7 +45,7 @@ box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.3);
 					<label>About</label>
 					<input type="text" name="about" class="form-control" >
 					</div>
-					<button class="btn btn-success col-md-12">Register</button>
+					<button class="btn btn-dark col-md-12">Register</button>
 					</form>
 					</div>
 				</div>
