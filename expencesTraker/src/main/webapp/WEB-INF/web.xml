@@ -22,6 +22,18 @@
   	<description></description>
   	<servlet-class>com.servlet.Login</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>LogOut</servlet-name>
+  	<display-name>LogOut</display-name>
+  	<description></description>
+  	<servlet-class>com.servlet.LogOut</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ExpenseServlet</servlet-name>
+  	<display-name>ExpenseServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.servlet.ExpenseServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>UserRegister</servlet-name>
   	<url-pattern>/UserRegister</url-pattern>
@@ -33,5 +45,13 @@
   <servlet-mapping>
   	<servlet-name>Login</servlet-name>
   	<url-pattern>/Login</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>LogOut</servlet-name>
+  	<url-pattern>/logOut</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ExpenseServlet</servlet-name>
+  	<url-pattern>/ExpenseServlet</url-pattern>
   </servlet-mapping>
 </web-app>

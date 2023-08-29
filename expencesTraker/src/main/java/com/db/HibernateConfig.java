@@ -8,6 +8,7 @@ import org.hibernate.cfg.Environment;
 import org.hibernate.dialect.MySQLDialect;
 import org.hibernate.service.ServiceRegistry;
 
+import com.entity.Expense;
 import com.entity.User;
 
 public class HibernateConfig {
@@ -34,6 +35,7 @@ public class HibernateConfig {
 			configuration.setProperties(properties);
 			// Set more properties if needed
 			configuration.addAnnotatedClass(User.class);
+			configuration.addAnnotatedClass(Expense.class);
 			ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
 					.applySettings(configuration.getProperties()).build();
 
