@@ -5,25 +5,28 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<%@include file="componant/allcss.jsp"%>
+<%@include file="../componant/allcss.jsp"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page isELIgnored="false"%>
 </head>
 <body>
-	<%@ include file="componant/navbar.jsp"%>
+<c:if test ="${empty loginUser }">
+<c:redirect url="../login.jsp"></c:redirect>
+</c:if>
+	<%@ include file="../componant/navbar.jsp"%>
 	<div class="container p-5">
 		<div class="row">
 			<div class="col-md-6 offset-md-3">
-				<div class="card card-sh">
+				<div class="card ">
 					<div class="card-header">
-						<p>Add Expense</p>
+						<p class="text-center fs-3">Add Expense</p>
 						<c:if test="${not empty msg }">
 						<p class ="text-center text-dark fs-4">${msg}</p>
 						<c:remove var="msg"/>
 						</c:if>
 					</div>
 					<div class="card-body">
-						<form action="ExpenseServlet" method="post">
+						<form action="../ExpenseServlet" method="post">
 							<div class="mb-3">
 								<label>Title</label> <input type="text" name="title"
 									class="form-control">

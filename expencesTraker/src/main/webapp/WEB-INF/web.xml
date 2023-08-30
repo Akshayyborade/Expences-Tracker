@@ -34,6 +34,18 @@
   	<description></description>
   	<servlet-class>com.servlet.ExpenseServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>UpdateExpenseServlet</servlet-name>
+  	<display-name>UpdateExpenseServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.servlet.UpdateExpenseServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>DeleteExpenseServlet</servlet-name>
+  	<display-name>DeleteExpenseServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.servlet.DeleteExpenseServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>UserRegister</servlet-name>
   	<url-pattern>/UserRegister</url-pattern>
@@ -53,5 +65,13 @@
   <servlet-mapping>
   	<servlet-name>ExpenseServlet</servlet-name>
   	<url-pattern>/ExpenseServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>UpdateExpenseServlet</servlet-name>
+  	<url-pattern>/UpdateExpenseServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>DeleteExpenseServlet</servlet-name>
+  	<url-pattern>/DeleteExpenseServlet</url-pattern>
   </servlet-mapping>
 </web-app>

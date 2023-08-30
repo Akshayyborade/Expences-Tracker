@@ -10,6 +10,19 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "user_expenses")
 public class Expense {
+	public Expense() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -21,7 +34,7 @@ public class Expense {
 	@ManyToOne
 	private User user;
 
-	public Expense(String title, String date, String time, String price, String description) {
+	public Expense(String title, String date, String time, String price, String description, User user) {
 		super();
 
 		this.title = title;
@@ -29,6 +42,7 @@ public class Expense {
 		this.time = time;
 		this.price = price;
 		this.description = description;
+		this.user=user;
 	}
 
 	public String getTitle() {

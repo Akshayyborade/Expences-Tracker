@@ -7,23 +7,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.hibernate.Session;
-
 import com.dao.ExpensesDao;
 import com.db.HibernateConfig;
 import com.entity.Expense;
 import com.entity.User;
 
 /**
- * Servlet implementation class ExpenseServlet
+ * Servlet implementation class UpdateExpenseServlet
  */
-public class ExpenseServlet extends HttpServlet {
+public class UpdateExpenseServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ExpenseServlet() {
+    public UpdateExpenseServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -41,7 +39,8 @@ public class ExpenseServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-	
+		doGet(request, response);
+		int id = Integer.parseInt(request.getParameter("id"));
 		String title = request.getParameter("title");
 		String date = request.getParameter("date");
 		String time = request.getParameter("time");
@@ -50,18 +49,20 @@ public class ExpenseServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("loginUser");
 		Expense expense = new Expense(title, date, time, price, description, user);
+		expense.setId(id);
+		
 		ExpensesDao dao= new ExpensesDao(HibernateConfig.getSessionFactory());
-		boolean f = dao.saveExpense(expense);
+		boolean f = dao.updateExpense(expense);
 		
 		
 		if (f) {
-			session.setAttribute("msg", "Expences added sucessfully");
-			response.sendRedirect("home/add_expense.jsp");
+			session.setAttribute("msg", "Expences updated sucessfully");
+			response.sendRedirect("home/view_expense.jsp");
 			
 			
 		} else {
 			session.setAttribute("msg", "something went wrong try again");
-			response.sendRedirect("home/add_expense.jsp");
+			response.sendRedirect("home/view_expense.jsp");
 
 		}
 	}

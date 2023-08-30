@@ -13,10 +13,10 @@
         </li>
         <c:if test= "${not empty loginUser}">
         <li class="nav-item">
-          <a class="nav-link active" href="../add_expense.jsp"><i class="fa-solid fa-indian-rupee-sign" ></i> Add Expense</a>
+          <a class="nav-link active" href="../home/add_expense.jsp"><i class="fa-solid fa-indian-rupee-sign" ></i> Add Expense</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="../view_expense.jsp"><i class="fa-solid fa-list"></i></i> View Expense</a>
+          <a class="nav-link active" href="../home/view_expense.jsp"><i class="fa-solid fa-list"></i></i> View Expense</a>
         </li>
         </c:if>
        
@@ -27,7 +27,7 @@
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <c:if test= "${not empty loginUser}">
         <li class="nav-item">
-          <a class="nav-link active" href="#"><i class="fa-solid fa-user-plus"></i> ${loginUser.fullName}</a>
+          <a class="nav-link active" href="../home/user_profile.jsp"><i class="fa-solid fa-user-plus"></i> ${loginUser.fullName}</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" href="../logOut"><i class="fa-solid fa-right-to-bracket"></i> Logout</a>

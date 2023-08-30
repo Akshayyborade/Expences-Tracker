@@ -46,7 +46,7 @@ public class RegisterServlet extends HttpServlet {
     	   //System.out.println("Register Sucessfully");
     	   resp.sendRedirect("resister.jsp");
        }else {
-    	   sessionReq.setAttribute("msg", "Register Error");
+    	   sessionReq.setAttribute("msg", "User already exist");
     	   //System.out.println("Register Error");
     	   resp.sendRedirect("resister.jsp");
        }
