@@ -1,5 +1,7 @@
 package com.dao;
 
+import java.util.ArrayList;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -49,6 +51,23 @@ public class UserDuo {
 	  return user;
 	  
   }
+ public boolean updateUser(User user) {
+	 boolean f = false;
+		try {
+			session=factory.openSession();
+			tx = session.beginTransaction();
+			session.merge(user);
+			tx.commit();
+			f=true;
+		} catch (Exception e) {
+			// TODO: handle exception
+			if(tx!=null) {
+				f=false;
+				e.printStackTrace();
+			}
+		}
+		return f;
+ }
 	
 
 }
